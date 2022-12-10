@@ -4,6 +4,7 @@ from control_functions import *
 
 MemSize = 1000 # memory size, in reality, the memory size should be 2^32, but for this lab, for the space resaon, we keep it as this large number, but the memory is still 32-bit addressable.
 
+
 class InsMem(object):
     def __init__(self, name, ioDir):
         self.id = name
@@ -15,6 +16,7 @@ class InsMem(object):
         #read instruction memory
         #return 32 bit hex val
         return "".join([i for idx,i in enumerate(self.IMem) if (idx >= ReadAddress) and (idx < ReadAddress + 4)])
+
 
 class DataMem(object):
     def __init__(self, name, ioDir):
@@ -65,6 +67,7 @@ class DataMem(object):
         with open(resPath, "w") as rp:
             rp.writelines([str(data) + "\n" for data in self.DMem])
 
+
 class RegisterFile(object):
     def __init__(self, ioDir):
         self.outputFile = ioDir + "RFResult.txt"
@@ -103,8 +106,10 @@ class State(object):
         self.WB = {"nop": False, "Wrt_data": 0, "Rs": 0, "Rt": 0, "DestReg": 0,
                    "WBEnable": 0, "PC": 0, "branch":0, "jump":0}
 
+
 class Core(object):
-    def __init__(self, ioDir, imem, dmem):
+
+    def __init__(self, ioDir, baseioDir, imem, dmem):
         self.myRF = RegisterFile(ioDir)
         self.cycle = 0
         self.halted = False
@@ -113,11 +118,25 @@ class Core(object):
         self.nextState = State()
         self.ext_imem = imem
         self.ext_dmem = dmem
+        self.baseioDir = baseioDir
+
+    def calculatePerformance(self, write_option, core_text):
+        self.opFilePath = self.baseioDir + "/PerformanceMetrics_Result.txt"
+        instruction_count = len(self.ext_imem.IMem) / 4
+        with open(self.opFilePath, write_option) as f:
+            f.write(f'\n{core_text} Core Performance Metrics-----------------------------\n')
+            f.write(f'Number of cycles taken: {self.cycle}\n')
+            f.write(f'Cycles per instruction: {self.cycle / instruction_count}\n')
+            f.write(f'Instructions per cycle: {instruction_count / self.cycle}\n')
+
 
 class SingleStageCore(Core):
     def __init__(self, ioDir, imem, dmem):
-        super(SingleStageCore, self).__init__(ioDir + "/SS_", imem, dmem)
+        super(SingleStageCore, self).__init__(ioDir + "/SS_", ioDir, imem, dmem)
         self.opFilePath = ioDir + "/StateResult_SS.txt"
+
+    def calculatePerformance(self, write_option):
+        super().calculatePerformance(write_option, 'Single Stage')
 
     def step(self):
         # Your implementation
@@ -181,8 +200,11 @@ class SingleStageCore(Core):
 
 class FiveStageCore(Core):
     def __init__(self, ioDir, imem, dmem):
-        super(FiveStageCore, self).__init__(ioDir + "/FS_", imem, dmem)
+        super(FiveStageCore, self).__init__(ioDir + "/FS_", ioDir, imem, dmem)
         self.opFilePath = ioDir + "/StateResult_FS.txt"
+
+    def calculatePerformance(self, write_option):
+        super().calculatePerformance(write_option, 'Five Stage')
 
     def step(self):
         # Your implementation
@@ -236,6 +258,7 @@ class FiveStageCore(Core):
         with open(self.opFilePath, perm) as wf:
             wf.writelines(printstate)
 
+
 if __name__ == "__main__":
 
     #parse arguments for input file location
@@ -243,7 +266,7 @@ if __name__ == "__main__":
     parser.add_argument('--iodir', default="", type=str, help='Directory containing the input files.')
     args = parser.parse_args()
 
-    ioDir = os.path.abspath(args.iodir)
+    ioDir = args.iodir or os.path.dirname(__file__)
     print("IO Directory:", ioDir)
 
     imem = InsMem("Imem", ioDir)
@@ -265,7 +288,10 @@ if __name__ == "__main__":
         if ssCore.halted and fsCore.halted:
             break
 
-
     # dump SS and FS data mem.
     dmem_ss.outputDataMem()
     dmem_fs.outputDataMem()
+
+    # dump performance metric
+    ssCore.calculatePerformance('w')
+    fsCore.calculatePerformance('a')
