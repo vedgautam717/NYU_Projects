@@ -28,7 +28,7 @@ if __name__ == "__main__":
     for tc in total_test_cases:
         print(f'Running testcase: {tc}')
         os.system(f'python3 {dir_path}/NYU_RV32I_6913.py --iodir={dir_path}/TC/{tc}')
-        time.sleep(5) # Sleep for 5 seconds
+        time.sleep(2) # Sleep for 2 seconds
 
         fs_dmem = file_compare(
             f"{dir_path}/TC/{tc}/ExpectedResults/FS_DMEMResult.txt",
