@@ -4,7 +4,6 @@ import os
 import time
 from termcolor import colored
 
-from difflib import Differ
 
 def file_compare(file1, file2):
     file1 = open(file1,'r')
@@ -20,6 +19,7 @@ def file_compare(file1, file2):
             return False
 
     return True
+
 
 if __name__ == "__main__":
     total_test_cases = range(5)
