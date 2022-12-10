@@ -4,11 +4,13 @@ def twos_comp(val, bits):
         val = val - (1 << bits)
     return val
 
+
 def generate_bitstring(s):
     #TODO: rm, this is for debugging the error
     if '-' in s:
         return s
     return s[-1: -33: -1][::-1]
+
 
 def twos_comp_str(s):
     s = list(s)
@@ -19,6 +21,7 @@ def twos_comp_str(s):
             s[i] = '0'
     return '{:032b}'.format(int(''.join(s), 2) + 1)
 
+
 def instruction_fetch(curr_state, next_state, instructions):
 
     if curr_state.IF["branch"] == 0:
@@ -27,6 +30,7 @@ def instruction_fetch(curr_state, next_state, instructions):
             next_state.ID["PC"] = curr_state.IF["PC"]
         else:
             next_state.ID["Instr"] = curr_state.ID["Instr"]
+
 
 def r_type(curr_state, next_state, register_file, memory):
 
@@ -98,6 +102,7 @@ def r_type(curr_state, next_state, register_file, memory):
     # Setting PC
     next_state.IF["PC"] = curr_state.IF["PC"] + 4
 
+
 def i_type(curr_state, next_state, register_file, memory):
     opcode = curr_state.ID["Instr"][-7:]
     rd = curr_state.ID["Instr"][-12:-7]
@@ -160,6 +165,7 @@ def i_type(curr_state, next_state, register_file, memory):
     # Setting PC
     next_state.IF["PC"] = curr_state.IF["PC"] + 4
 
+
 def s_type(curr_state, next_state, register_file, memory):
 
     imm1 = curr_state.ID["Instr"][-12:-7]
@@ -205,6 +211,7 @@ def s_type(curr_state, next_state, register_file, memory):
     # Setting PC
     next_state.IF["PC"] = curr_state.IF["PC"] + 4
 
+
 def j_type(curr_state, next_state, register_file, memory):
 
     opcode = curr_state.ID["Instr"][-7:]
@@ -235,6 +242,7 @@ def j_type(curr_state, next_state, register_file, memory):
         (int(twos_comp_str(next_state.EX["Imm"]), 2) << 1) * -1
     ][next_state.EX["Imm"][0] == '1']
     next_state.IF["PC"] = curr_state.ID["PC"] + imm
+
 
 def b_type(curr_state, next_state, register_file, memory):
 
@@ -365,6 +373,7 @@ def instruction_decode(curr_state, next_state, register_file, memory):
         #     next_state.IF["PC"] = curr_state.IF["PC"] + 4
         next_state.EX["nop"] = True
 
+
 def instruction_exec(curr_state, next_state, register_file, memory):
     # carry over instructions
     next_state.MEM["DestReg"] = curr_state.EX["DestReg"]
@@ -417,6 +426,7 @@ def instruction_exec(curr_state, next_state, register_file, memory):
     else:
         next_state.MEM["nop"] = True
 
+
 def instruction_mem(curr_state, next_state, register_file, memory):
     # carry over instructions
     next_state.EX["nop"] = curr_state.EX["nop"]
@@ -447,6 +457,7 @@ def instruction_mem(curr_state, next_state, register_file, memory):
     else:
         next_state.WB["nop"] = True
     next_state.WB["PC"] = curr_state.MEM["PC"]
+
 
 def write_back(curr_state, next_state, register_file):
     # carry over instructions
