@@ -22,12 +22,12 @@ def file_compare(file1, file2):
 
 
 if __name__ == "__main__":
-    dir_path = os.getcwd()
-    total_test_cases = os.listdir('./TC')
+    dir_path = os.path.dirname(__file__)
+    total_test_cases = os.listdir(f'{dir_path}/TC')
     
     for tc in total_test_cases:
         print(f'Running testcase: {tc}')
-        os.system(f'python3 NYU_RV32I_6913.py --iodir={dir_path}/TC/{tc}')
+        os.system(f'python3 {dir_path}/NYU_RV32I_6913.py --iodir={dir_path}/TC/{tc}')
         time.sleep(5) # Sleep for 5 seconds
 
         fs_dmem = file_compare(
