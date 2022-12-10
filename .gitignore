@@ -137,4 +137,4 @@ docs/helperdoc.md
 .vscode
 
 # remove txt
-# *.txt
+*.txt
