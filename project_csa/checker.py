@@ -22,30 +22,30 @@ def file_compare(file1, file2):
 
 
 if __name__ == "__main__":
-    total_test_cases = range(5)
-    dir_path = os.path.dirname(os.path.realpath(__file__))
-    destination_imem = f"{dir_path}/imem.txt"
-    destination_dmem = f"{dir_path}/dmem.txt"
+    dir_path = os.getcwd()
+    total_test_cases = os.listdir('./TC')
     
     for tc in total_test_cases:
-        # copy necessary test case files
-        imem_loc = f"{dir_path}/TC{tc}/imem.txt"
-        dmem_loc = f"{dir_path}/TC{tc}/dmem.txt"
-        shutil.copyfile(imem_loc, destination_imem)
-        shutil.copyfile(dmem_loc, destination_dmem)
-        time.sleep(2) # Sleep for 2 seconds
-
-        os.system('python3 NYU_RV32I_6913.py')
+        print(f'Running testcase: {tc}')
+        os.system(f'python3 NYU_RV32I_6913.py --iodir={dir_path}/TC/{tc}')
         time.sleep(5) # Sleep for 5 seconds
 
-        fs_dmem = file_compare(f"{dir_path}/TC{tc}/ExpectedResults/FS_DMEMResult.txt",
-                                f"{dir_path}/FS_DMEMResult.txt")
-        fs_rf = file_compare(f"{dir_path}/TC{tc}/ExpectedResults/FS_RFResult.txt",
-                                f'{dir_path}/FS_RFResult.txt')
-        ss_dmem = file_compare(f"{dir_path}/TC{tc}/ExpectedResults/SS_DMEMResult.txt",
-                                f'{dir_path}/SS_DMEMResult.txt')
-        ss_rf = file_compare(f"/Users/vedgautam/Desktop/Fall_2022/project_csa/TC{tc}/ExpectedResults/SS_RFResult.txt",
-                                f'{dir_path}/SS_RFResult.txt')
+        fs_dmem = file_compare(
+            f"{dir_path}/TC/{tc}/ExpectedResults/FS_DMEMResult.txt",
+            f"{dir_path}/TC/{tc}/FS_DMEMResult.txt"
+        )
+        fs_rf = file_compare(
+            f"{dir_path}/TC/{tc}/ExpectedResults/FS_RFResult.txt",
+            f"{dir_path}/TC/{tc}/FS_RFResult.txt"
+        )
+        ss_dmem = file_compare(
+            f"{dir_path}/TC/{tc}/ExpectedResults/SS_DMEMResult.txt",
+            f"{dir_path}/TC/{tc}/SS_DMEMResult.txt"
+        )
+        ss_rf = file_compare(
+            f"{dir_path}/TC/{tc}/ExpectedResults/SS_RFResult.txt",
+            f"{dir_path}/TC/{tc}/SS_RFResult.txt"
+        )
 
         if fs_dmem and fs_rf and ss_dmem and ss_rf:
             print(colored(f'Test Case {tc} Passes', 'green'))
