@@ -1708,11 +1708,11 @@ WB.branch: 0
 WB.jump: 0
 ----------------------------------------------------------------------
 State after executing cycle: 36
-IF.nop: False
+IF.nop: True
 IF.PC: 32
 IF.branch: 0
 IF.jump: 0
-ID.nop: False
+ID.nop: True
 ID.Instr: 11111111111111111111111111111111
 ID.PC: 28
 ID.branch: 0
@@ -1777,53 +1777,6 @@ EX.WrDMem: 0
 EX.AluOperation: 0
 EX.WBEnable: 0
 EX.PC: 28
-EX.branch: 0
-EX.AluControlInput: 0
-EX.jump: 0
-MEM.nop: True
-MEM.ALUresult: 0
-MEM.Store_data: 0
-MEM.Rs: 0
-MEM.Rt: 0
-MEM.DestReg: 0
-MEM.RdDMem: 0
-MEM.WrDMem: 0
-MEM.WBEnable: 0
-MEM.PC: 0
-MEM.branch: 0
-MEM.jump: 0
-WB.nop: True
-WB.Wrt_data: 0
-WB.Rs: 0
-WB.Rt: 0
-WB.DestReg: 0
-WB.WBEnable: 0
-WB.PC: 0
-WB.branch: 0
-WB.jump: 0
-----------------------------------------------------------------------
-State after executing cycle: 38
-IF.nop: True
-IF.PC: 32
-IF.branch: 0
-IF.jump: 0
-ID.nop: True
-ID.Instr: 11111111111111111111111111111111
-ID.PC: 0
-ID.branch: 0
-ID.jump: 0
-EX.nop: True
-EX.Operand1: 0
-EX.Imm: 0
-EX.mux_out1: 0
-EX.mux_out2: 0
-EX.DestReg: 0
-EX.is_I_type: False
-EX.RdDMem: 0
-EX.WrDMem: 0
-EX.AluOperation: 0
-EX.WBEnable: 0
-EX.PC: 0
 EX.branch: 0
 EX.AluControlInput: 0
 EX.jump: 0

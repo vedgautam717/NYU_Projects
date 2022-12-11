@@ -379,11 +379,11 @@ WB.branch: 0
 WB.jump: 0
 ----------------------------------------------------------------------
 State after executing cycle: 8
-IF.nop: False
+IF.nop: True
 IF.PC: 20
 IF.branch: 0
 IF.jump: 0
-ID.nop: False
+ID.nop: True
 ID.Instr: 11111111111111111111111111111111
 ID.PC: 16
 ID.branch: 0

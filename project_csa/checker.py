@@ -10,7 +10,8 @@ def file_compare(file1, file2):
     file2 = open(file2,'r')
     file1_lines = file1.readlines()
     file2_lines = file2.readlines()
-
+    if len(file1.readlines()) != len(file2.readlines()):
+        return False
     for i in range(len(file1_lines)):
         try:
             if file1_lines[i] != file2_lines[i]:

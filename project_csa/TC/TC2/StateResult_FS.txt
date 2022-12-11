@@ -283,16 +283,16 @@ WB.branch: 0
 WB.jump: 0
 ----------------------------------------------------------------------
 State after executing cycle: 6
-IF.nop: False
+IF.nop: True
 IF.PC: 16
 IF.branch: 0
 IF.jump: 0
-ID.nop: False
+ID.nop: True
 ID.Instr: 11111111111111111111111111111111
 ID.PC: 12
 ID.branch: 0
 ID.jump: 0
-EX.nop: False
+EX.nop: True
 EX.Operand1: 00000000000000000000000000001000
 EX.Imm: 111111111110
 EX.mux_out1: 00000000000000000000000000001000

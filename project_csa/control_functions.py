@@ -28,6 +28,10 @@ def instruction_fetch(curr_state, next_state, instructions):
         if (curr_state.IF["PC"] != next_state.IF["PC"] or curr_state.IF["PC"]==0):
             next_state.ID["Instr"] = instructions.readInstr(int(curr_state.IF["PC"]))
             next_state.ID["PC"] = curr_state.IF["PC"]
+            if next_state.ID["Instr"][-7:] == "1111111":
+                next_state.EX["nop"] = True
+                next_state.ID["nop"] = True
+                next_state.IF["nop"] = True
         else:
             next_state.ID["Instr"] = curr_state.ID["Instr"]
 
