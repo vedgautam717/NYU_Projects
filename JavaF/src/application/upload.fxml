@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.UploadController">
+   <top>
+      <AnchorPane prefHeight="94.0" prefWidth="700.0" style="-fx-background-color: #789cbc;" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="613.0" layoutY="34.0" mnemonicParsing="false" style="-fx-background-color: #789cbc; -fx-border-width: 1px; -fx-border-color: #ffffff;" text="Logout" textFill="WHITE" />
+            <Text fill="WHITE" layoutX="43.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DATA VISUALIZATION">
+               <font>
+                  <Font name="Arial Bold" size="22.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </top>
+   <bottom>
+      <AnchorPane prefHeight="532.0" prefWidth="700.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="uploadButton" layoutX="312.0" layoutY="178.0" mnemonicParsing="false" text="Upload File" onAction="#handleUploadButton" />
+            <Label fx:id="fileNameLabel" layoutX="274.0" layoutY="238.0" prefHeight="17.0" prefWidth="352.0" />
+         </children>
+      </AnchorPane>
+   </bottom>
+</BorderPane>

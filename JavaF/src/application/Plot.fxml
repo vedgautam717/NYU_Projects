@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.collections.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PlotController">
+   <top>
+      <AnchorPane prefHeight="94.0" prefWidth="700.0" style="-fx-background-color: #789cbc;" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="613.0" layoutY="34.0" mnemonicParsing="false" style="-fx-background-color: #789cbc; -fx-border-width: 1px; -fx-border-color: #ffffff;" text="Logout" textFill="WHITE" />
+            <Text fill="WHITE" layoutX="43.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DATA VISUALIZATION">
+               <font>
+                  <Font name="Arial Bold" size="22.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </top>
+   <bottom>
+      <AnchorPane prefHeight="532.0" prefWidth="700.0" BorderPane.alignment="CENTER">
+         <children>
+            <ComboBox fx:id="plotTypeComboBox" layoutX="14.0" layoutY="31.0" value="Line Plot">
+              <items>
+              	<FXCollections fx:factory="observableArrayList">
+                	<String fx:value="Line Plot" />
+                	<String fx:value="Scatter Plot" />
+                </FXCollections>
+              </items>
+            </ComboBox>
+            <ComboBox fx:id="xAxisComboBox" layoutX="199.0" layoutY="31.0" prefWidth="150.0" promptText="Select X-Axis" />
+            <ComboBox fx:id="yAxisComboBox" layoutX="373.0" layoutY="31.0" prefWidth="150.0" promptText="Select Y-Axis" />
+            <Button fx:id="plotButton" layoutX="617.0" layoutY="31.0" mnemonicParsing="false" text="Plot" onAction="#handlePlotButton" />
+            <StackPane fx:id="chartPane" layoutX="79.0" layoutY="72.0" prefHeight="264.0" prefWidth="550.0">
+			  <LineChart fx:id="lineChart">
+			    <xAxis>
+			      <CategoryAxis side="BOTTOM" />
+			    </xAxis>
+			    <yAxis>
+			      <NumberAxis side="LEFT" />
+			    </yAxis>
+			  </LineChart>
+			  <ScatterChart fx:id="scatterChart">
+			    <xAxis>
+			      <CategoryAxis side="BOTTOM" />
+			    </xAxis>
+			    <yAxis>
+			      <NumberAxis side="LEFT" />
+			    </yAxis>
+			  </ScatterChart>
+			</StackPane>
+            
+         </children>
+      </AnchorPane>
+   </bottom>
+</BorderPane>
