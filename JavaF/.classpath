@@ -16,17 +16,7 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Administrator/Documents/fontawesomefx-8.2.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Administrator/Documents/jarFiles/commons-csv-1.10.0.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Administrator/Documents/jarFiles/commons-csv-1.10.0-sources.jar">
+	<classpathentry kind="lib" path="C:/Users/Administrator/Documents/jarFiles/fontawesomefx-8.9.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>

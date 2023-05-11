@@ -8,7 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-public class LoginController {
+public class RegisterController {
 
     @FXML
     private TextField usernameField;
@@ -17,9 +17,12 @@ public class LoginController {
     private PasswordField passwordField;
     
     @FXML
-    private Button signInButton;
+    private TextField emailField;
+    
+    @FXML
+    private Button registerInButton;
 
-    public void handleLoginButton() throws IOException {
+    public void handleRegisterButton() throws IOException {
         String username = usernameField.getText();
         String password = passwordField.getText();
         if (username.equals("admin") && password.equals("admin")) {
@@ -33,9 +36,5 @@ public class LoginController {
             alert.setContentText("Please enter correct username and password.");
             alert.showAndWait();
         }
-    }
-    
-    public void handleRegisterButton() {
-    	Main.switchToRegisterScene();
     }
 }

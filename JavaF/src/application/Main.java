@@ -20,9 +20,21 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-    public void switchToLoginScene() {
+    public static void switchToLoginScene() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
+            FXMLLoader loader = new FXMLLoader(Main.class.getResource("Login.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    
+    public static void switchToRegisterScene() {
+        try {
+            FXMLLoader loader = new FXMLLoader(Main.class.getResource("Register.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
             stage.setScene(scene);
@@ -33,7 +45,7 @@ public class Main extends Application {
 
     public static void switchToUploadScene() {
         try {
-            FXMLLoader loader = new FXMLLoader(Main.class.getResource("upload.fxml"));
+            FXMLLoader loader = new FXMLLoader(Main.class.getResource("Upload.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
             stage.setScene(scene);
@@ -41,6 +53,7 @@ public class Main extends Application {
             e.printStackTrace();
         }
     }
+    
 
     public static void switchToPlotScene(DataModel dataModel) {
         try {

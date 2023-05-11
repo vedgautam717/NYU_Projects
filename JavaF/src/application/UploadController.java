@@ -85,5 +85,9 @@ public class UploadController {
     public static DataModel getDataModel() {
         return dataModel;
     }
+    
+    public void handleLogoutButton() {
+    	Main.switchToLoginScene();
+    }
 
 }

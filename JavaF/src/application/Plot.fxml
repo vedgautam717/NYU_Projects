@@ -9,23 +9,26 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.collections.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PlotController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PlotController">
    <top>
-      <AnchorPane prefHeight="94.0" prefWidth="700.0" style="-fx-background-color: #789cbc;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="178.0" prefWidth="1600.0" style="-fx-background-color: #789cbc;" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="613.0" layoutY="34.0" mnemonicParsing="false" style="-fx-background-color: #789cbc; -fx-border-width: 1px; -fx-border-color: #ffffff;" text="Logout" textFill="WHITE" />
-            <Text fill="WHITE" layoutX="43.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DATA VISUALIZATION">
+            <Button layoutX="1467.0" layoutY="73.0" mnemonicParsing="false" style="-fx-background-color: #789cbc; -fx-border-width: 1px; -fx-border-color: #ffffff;" text="Logout" textFill="WHITE" onAction="#handleLogoutButton">
                <font>
-                  <Font name="Arial Bold" size="22.0" />
+                  <Font name="System Bold" size="15.0" />
+               </font></Button>
+            <Text fill="WHITE" layoutX="43.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DATA VISUALIZATION">
+               <font>
+                  <Font name="Arial Bold" size="60.0" />
                </font>
             </Text>
          </children>
       </AnchorPane>
    </top>
    <bottom>
-      <AnchorPane prefHeight="532.0" prefWidth="700.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="722.0" prefWidth="1600.0" BorderPane.alignment="CENTER">
          <children>
-            <ComboBox fx:id="plotTypeComboBox" layoutX="14.0" layoutY="31.0" value="Line Plot">
+            <ComboBox fx:id="plotTypeComboBox" layoutX="47.0" layoutY="31.0" value="Line Plot">
               <items>
               	<FXCollections fx:factory="observableArrayList">
                 	<String fx:value="Line Plot" />
@@ -33,27 +36,31 @@
                 </FXCollections>
               </items>
             </ComboBox>
-            <ComboBox fx:id="xAxisComboBox" layoutX="199.0" layoutY="31.0" prefWidth="150.0" promptText="Select X-Axis" />
-            <ComboBox fx:id="yAxisComboBox" layoutX="373.0" layoutY="31.0" prefWidth="150.0" promptText="Select Y-Axis" />
-            <Button fx:id="plotButton" layoutX="617.0" layoutY="31.0" mnemonicParsing="false" text="Plot" onAction="#handlePlotButton" />
-            <StackPane fx:id="chartPane" layoutX="79.0" layoutY="72.0" prefHeight="264.0" prefWidth="550.0">
-			  <LineChart fx:id="lineChart">
-			    <xAxis>
-			      <CategoryAxis side="BOTTOM" />
-			    </xAxis>
-			    <yAxis>
-			      <NumberAxis side="LEFT" />
-			    </yAxis>
-			  </LineChart>
-			  <ScatterChart fx:id="scatterChart">
-			    <xAxis>
-			      <CategoryAxis side="BOTTOM" />
-			    </xAxis>
-			    <yAxis>
-			      <NumberAxis side="LEFT" />
-			    </yAxis>
-			  </ScatterChart>
+            <ComboBox layoutX="638.0" layoutY="31.0" prefWidth="150.0" promptText="Select X-Axis" fx:id="xAxisComboBox" />
+            <ComboBox fx:id="yAxisComboBox" layoutX="812.0" layoutY="31.0" prefWidth="150.0" promptText="Select Y-Axis" />
+            <Button fx:id="plotButton" layoutX="1500.0" layoutY="31.0" mnemonicParsing="false" onAction="#handlePlotButton" text="Plot" />
+            <StackPane fx:id="chartPane" layoutX="100.0" layoutY="101.0" prefHeight="520.0" prefWidth="1400.0">
+               <children>
+   			  <LineChart fx:id="lineChart">
+   			    <xAxis>
+   			      <NumberAxis side="BOTTOM" />
+   			    </xAxis>
+   			    <yAxis>
+   			      <NumberAxis side="LEFT" />
+   			    </yAxis>
+   			  </LineChart>
+   			  <ScatterChart fx:id="scatterChart">
+   			    <xAxis>
+   			      <NumberAxis side="BOTTOM" />
+   			    </xAxis>
+   			    <yAxis>
+   			      <NumberAxis side="LEFT" />
+   			    </yAxis>
+   			  </ScatterChart>
+               </children>
 			</StackPane>
+            <Button layoutX="47.0" layoutY="658.0" mnemonicParsing="false" text="Back" onAction="#handleBackButton" />
+            <Button layoutX="1486.0" layoutY="658.0" mnemonicParsing="false" text="Save Plot" onAction="#handleSaveButton"/>
             
          </children>
       </AnchorPane>

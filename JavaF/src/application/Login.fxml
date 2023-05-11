@@ -8,27 +8,27 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LoginController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LoginController">
    <left>
-      <AnchorPane prefHeight="500.0" prefWidth="350.0" style="-fx-background-color: #789cbc;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="800.0" prefWidth="800.0" style="-fx-background-color: #789cbc;" BorderPane.alignment="CENTER">
          <children>
-            <Text fill="WHITE" layoutX="53.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DATA VISUALIZATION">
+            <Text fill="WHITE" layoutX="58.0" layoutY="422.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DATA VISUALIZATION">
                <font>
-                  <Font name="Arial Black" size="20.0" />
+                  <Font name="Arial Black" size="56.0" />
                </font>
             </Text>
          </children>
       </AnchorPane>
    </left>
    <right>
-      <AnchorPane prefHeight="500.0" prefWidth="350.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="500.0" prefWidth="800.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="usernameField" layoutX="117.0" layoutY="210.0" promptText="User Name" style="-fx-background-color: transparent; -fx-border-color: #789cbc; -fx-border-width: 0px 0px 2px 0px;" />
-            <PasswordField fx:id="passwordField" layoutX="117.0" layoutY="264.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: #789cbc; -fx-border-width: 0px 0px 2px 0px;" />
-            <Button fx:id="signInButton" layoutX="152.0" layoutY="322.0" mnemonicParsing="false" style="-fx-background-color: #789cbc;" text="Login" textFill="WHITE" onAction="#handleLoginButton"/>
-            <Button fx:id="registerInButton" layoutX="145.0" layoutY="385.0" mnemonicParsing="false" style="-fx-background-color: #789cbc;" text="Register" textFill="WHITE" />
-            <Text fill="#789cbc" layoutX="147.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New User?" />
-            <Hyperlink layoutX="112.0" layoutY="463.0" text="Forgot you password?" textFill="#789cbc" />
+            <TextField fx:id="usernameField" layoutX="328.0" layoutY="262.0" promptText="User Name" style="-fx-background-color: transparent; -fx-border-color: #789cbc; -fx-border-width: 0px 0px 2px 0px;" />
+            <PasswordField fx:id="passwordField" layoutX="328.0" layoutY="316.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: #789cbc; -fx-border-width: 0px 0px 2px 0px;" />
+            <Button fx:id="signInButton" layoutX="377.0" layoutY="375.0" mnemonicParsing="false" onAction="#handleLoginButton" style="-fx-background-color: #789cbc;" text="Login" textFill="WHITE" />
+            <Button fx:id="registerInButton" layoutX="370.0" layoutY="437.0" mnemonicParsing="false" style="-fx-background-color: #789cbc;" text="Register" textFill="WHITE" onAction="#handleRegisterButton"/>
+            <Text fill="#789cbc" layoutX="372.0" layoutY="433.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New User?" />
+            <Hyperlink layoutX="337.0" layoutY="514.0" text="Forgot you password?" textFill="#789cbc" />
          </children>
       </AnchorPane>
    </right>

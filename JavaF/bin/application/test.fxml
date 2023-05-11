@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.?>
+<?import javafx.scene.chart.?>
+<?import javafx.scene.text.?>
+<?import javafx.scene.control.?>
+<?import java.lang.?>
+<?import javafx.scene.layout.?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.collections.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PlotController">
+        <AnchorPane prefHeight="19.78%" prefWidth="100%" style="-fx-background-color: #789cbc;" BorderPane.alignment="CENTER">
+            <children>
+                <Button layoutX="91.69%" layoutY="4.83%" mnemonicParsing="false" style="-fx-background-color: #789cbc; -fx-border-width: 1px; -fx-border-color: #ffffff; -fx-border-radius: 10px; -fx-font-size: 18px;" text="Logout" textFill="WHITE" onAction="#handleLogoutButton"/>
+                <Text fill="WHITE" layoutX="2.69%" layoutY="12.11%" strokeType="OUTSIDE" strokeWidth="0.0" text="DATA VISUALIZATION">
+                    <font>
+                        <Font name="Arial Bold" size="60.0"/>
+                    </font>
+                </Text>
+            </children>
+        </AnchorPane>
+</BorderPane>
