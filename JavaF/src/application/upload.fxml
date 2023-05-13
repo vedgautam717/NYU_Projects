@@ -12,10 +12,12 @@
    <top>
       <AnchorPane prefHeight="178.0" prefWidth="1600.0" style="-fx-background-color: #789cbc;" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="1467.0" layoutY="73.0" mnemonicParsing="false" style="-fx-background-color: #789cbc; -fx-border-width: 1px; -fx-border-color: #ffffff;" text="Logout" textFill="WHITE" onAction="#handleLogoutButton">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font></Button>
+            <MenuButton layoutX="1467.0" layoutY="73.0" mnemonicParsing="false" style="-fx-background-color: #789cbc; -fx-border-width: 1px; -fx-border-color: #ffffff;" text="Account">
+			  <items>
+			    <MenuItem mnemonicParsing="false" onAction="#handleLogoutButton" text="Logout" />
+			    <MenuItem mnemonicParsing="false" onAction="#handleChangePasswordButton" text="Edit Profile" />
+			  </items>
+			</MenuButton>
             <Text fill="WHITE" layoutX="43.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DATA VISUALIZATION">
                <font>
                   <Font name="Arial Bold" size="60.0" />

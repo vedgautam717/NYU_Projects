@@ -23,12 +23,11 @@
    <right>
       <AnchorPane prefHeight="500.0" prefWidth="800.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="usernameField" layoutX="328.0" layoutY="262.0" promptText="User Name" style="-fx-background-color: transparent; -fx-border-color: #789cbc; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField fx:id="emailField" layoutX="328.0" layoutY="262.0" promptText="Email" style="-fx-background-color: transparent; -fx-border-color: #789cbc; -fx-border-width: 0px 0px 2px 0px;" />
             <PasswordField fx:id="passwordField" layoutX="328.0" layoutY="316.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: #789cbc; -fx-border-width: 0px 0px 2px 0px;" />
             <Button fx:id="signInButton" layoutX="377.0" layoutY="375.0" mnemonicParsing="false" onAction="#handleLoginButton" style="-fx-background-color: #789cbc;" text="Login" textFill="WHITE" />
             <Button fx:id="registerInButton" layoutX="370.0" layoutY="437.0" mnemonicParsing="false" style="-fx-background-color: #789cbc;" text="Register" textFill="WHITE" onAction="#handleRegisterButton"/>
             <Text fill="#789cbc" layoutX="372.0" layoutY="433.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New User?" />
-            <Hyperlink layoutX="337.0" layoutY="514.0" text="Forgot you password?" textFill="#789cbc" />
          </children>
       </AnchorPane>
    </right>

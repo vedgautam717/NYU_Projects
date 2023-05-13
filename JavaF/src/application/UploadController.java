@@ -25,10 +25,21 @@ public class UploadController {
     private String[][] data;
     
     private static DataModel dataModel;
+    
+    private static String accessToken;
 
-    @FXML
+    public static String getAccessToken() {
+		return accessToken;
+	}
+
+	public void setAccessToken(String accessToken) {
+		UploadController.accessToken = accessToken;
+	}
+
+	@FXML
     private void handleUploadButton() {
         // Open file chooser dialog
+		System.out.println("UploadCOntroller "+accessToken);
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open CSV File");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV Files", "*.csv"));
@@ -70,7 +81,7 @@ public class UploadController {
 //                System.out.println(columnNames);
                 dataModel = new DataModel(data, columnNames);
                 
-                Main.switchToPlotScene(dataModel);
+                Main.switchToPlotScene(dataModel, accessToken);
             } catch (IOException e) {
                 e.printStackTrace();
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -88,6 +99,10 @@ public class UploadController {
     
     public void handleLogoutButton() {
     	Main.switchToLoginScene();
+    }
+    
+    public void handleChangePasswordButton() {
+    	Main.switchToChangePasswordScene(accessToken);
     }
 
 }

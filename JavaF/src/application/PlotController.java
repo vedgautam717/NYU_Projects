@@ -17,7 +17,6 @@ import com.github.javafx.charts.zooming.ZoomManager;
 
 import javafx.collections.FXCollections;
 import javafx.embed.swing.SwingFXUtils;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.SnapshotParameters;
@@ -70,8 +69,19 @@ public class PlotController {
 
   // A constant for the scatter plot option
   private static final String SCATTER_PLOT = "Scatter Plot";
+  
+  private static String accessToken;
+  
 
-  @FXML
+  public static String getAccessToken() {
+	return accessToken;
+}
+
+public static void setAccessToken(String accessToken) {
+	PlotController.accessToken = accessToken;
+}
+
+@FXML
   void initialize() {
     // Disable the plot button initially
     plotButton.setDisable(true);
@@ -157,7 +167,8 @@ public class PlotController {
     alert.showAndWait();
     }
 
-    private void createLineChart(String xLabel, String yLabel) {
+    @SuppressWarnings("unchecked")
+	private void createLineChart(String xLabel, String yLabel) {
         // Create the line chart
     	scatterChart.getData().clear();
         lineChart.getXAxis().setLabel(xLabel);
@@ -170,7 +181,7 @@ public class PlotController {
         lineChart.setAnimated(false);
 
         // Add this line to create a zoom manager for the line chart
-        new ZoomManager(chartPane, lineChart, series);
+        new ZoomManager<Number, Number>(chartPane, lineChart, series);
 
 
         lineChart.setVisible(true);
@@ -190,7 +201,7 @@ public class PlotController {
         scatterChart.setAnimated(false);
 
         // Add this line to create a zoom manager for the scatter chart
-        new ZoomManager(chartPane, scatterChart, Collections.singleton(series));
+        new ZoomManager<Number, Number>(chartPane, scatterChart, Collections.singleton(series));
 
         scatterChart.setVisible(true);
         lineChart.setVisible(false);
@@ -249,7 +260,7 @@ public class PlotController {
     }
     
     public void handleBackButton() {
-    	Main.switchToUploadScene();
+    	Main.switchToUploadScene(accessToken);
     }
     
     public void handleLogoutButton() {

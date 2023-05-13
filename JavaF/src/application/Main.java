@@ -42,20 +42,35 @@ public class Main extends Application {
             e.printStackTrace();
         }
     }
+    
+    public static void switchToChangePasswordScene(String accessToken) {
+        try {
+            FXMLLoader loader = new FXMLLoader(Main.class.getResource("ChangePassword.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            ChangePasswordController changePasswordController = loader.getController();
+            changePasswordController.setAccessToken(accessToken);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
-    public static void switchToUploadScene() {
+    public static void switchToUploadScene(String accessToken) {
         try {
             FXMLLoader loader = new FXMLLoader(Main.class.getResource("Upload.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
             stage.setScene(scene);
+            UploadController uploadController = loader.getController();
+            uploadController.setAccessToken(accessToken);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
     
 
-    public static void switchToPlotScene(DataModel dataModel) {
+    public static void switchToPlotScene(DataModel dataModel, String accessToken) {
         try {
             FXMLLoader loader = new FXMLLoader(Main.class.getResource("Plot.fxml"));
             Parent root = loader.load();
@@ -63,6 +78,7 @@ public class Main extends Application {
             stage.setScene(scene);
             PlotController plotController = loader.getController();
             plotController.setDataModel(dataModel);
+            PlotController.setAccessToken(accessToken);
             plotController.initialize();
             
         } catch (IOException e) {
@@ -73,4 +89,5 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
 }
