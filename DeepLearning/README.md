@@ -42,3 +42,14 @@ Ensure you have the necessary libraries installed. You can install them using th
 - Seaborn
 - tqdm
 - scikit-learn
+
+## GAN
+![Vanilla GAN](images/VanillaGAN.jpg)
+![Bi GAN](images/BiDirectionalGAN.jpg)
+
+# Training
+![Training](images/TrainingProcess.jpg)
+
+# Results
+![ROC](images/ROC_curve.jpg)
+![Confusion Matrix](images/ConfusionMatrix.jpg)
