@@ -51,5 +51,5 @@ Ensure you have the necessary libraries installed. You can install them using th
 ![Training](images/TrainingProcess.jpg)
 
 # Results
-![ROC](images/ROC_curve.jpg)
-![Confusion Matrix](images/ConfusionMatrix.jpg)
+![ROC](images/ROC_curve.png)
+![Confusion Matrix](images/ConfusionMatrix.png)
